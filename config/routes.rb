@@ -6,4 +6,8 @@ Myflix::Application.routes.draw do
 
   get 'ui(/:action)', controller: 'ui'
 
+  #get '/category/:id', to: 'categories#show', as: 'category'
+
+  resources  :categories
+
 end
