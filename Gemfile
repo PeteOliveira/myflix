@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
 
 gem 'bootstrap-sass'
 gem 'coffee-rails'
@@ -23,3 +22,4 @@ group :production do
   gem 'rails_12factor'
 end
 
+ruby '2.1.0'
