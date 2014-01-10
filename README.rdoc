@@ -1,3 +1,22 @@
+== Petes Mods
+To start the App run
+foreman start -f devProcfile
+
+To find possible db indexes
+lol_dba db:find_indexes
+
+Mailcatcher
+Run mailcatcher
+view at http://localhost:1080/
+
+to generate sandy_meter report
+sandi_meter -d -g
+
+Brakeman
+brakeman -o brakeman_output.html
+
+
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
