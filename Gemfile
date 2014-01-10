@@ -47,6 +47,7 @@ group :development, :test do
   gem 'capybara' #makes it easy to programatically simulate your users’ interactions with your web application
   gem 'sqlite3'
   gem 'sandi_meter'
+  gem 'ruby_gntp'
 end
 
 group :test do

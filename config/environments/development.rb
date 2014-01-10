@@ -29,7 +29,11 @@ Myflix::Application.configure do
     #Bullet.alert = true
     Bullet.bullet_logger = true
     Bullet.console = true
-    #Bullet.growl = true
+    if Socket.gethostname == 'macbook17.local'
+      Bullet.growl = true
+    else
+      Bullet.growl = false
+    end
     #Bullet.xmpp = { :account  => 'bullets_account@jabber.org',
     #                :password => 'bullets_password_for_jabber',
     #                :receiver => 'your_account@jabber.org',

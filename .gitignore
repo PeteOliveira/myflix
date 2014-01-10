@@ -16,3 +16,6 @@
 
 /.idea
 brakeman_output.html
+
+coverage/
+sandy_meter/
