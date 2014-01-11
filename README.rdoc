@@ -9,13 +9,19 @@ Mailcatcher
 Run mailcatcher
 view at http://localhost:1080/
 
-to generate sandy_meter report
+Sandy_meter report
 sandi_meter -d -g
+/sandi_meter/index.html
 
-Brakeman
+Brakeman run and report
 brakeman -o brakeman_output.html
+/brakeman_output.html
 
+Rspec report output
+/tmp/spec_outputs/spec_results.html
 
+SimpleCov Code coverage
+/coverage/index.html
 
 == Welcome to Rails
 
