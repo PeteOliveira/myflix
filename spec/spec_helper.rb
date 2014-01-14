@@ -91,7 +91,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation, {:except => %w[]} # place tables which should not be cleared
-    Rails.application.load_seed
+    #Rails.application.load_seed
   end
   config.before(:each) do
     DatabaseCleaner.start
