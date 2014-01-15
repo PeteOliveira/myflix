@@ -7,6 +7,8 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'haml-rails'
+gem 'bootstrap_form'
+gem 'bcrypt-ruby'
 
 group :production do
   gem 'pg'
