@@ -90,7 +90,8 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation, {:except => %w[]} # place tables which should not be cleared
+    DatabaseCleaner.strategy = :transaction #, {:except => %w[]} # place tables which should not be cleared
+    DatabaseCleaner.clean_with(:truncation)
     #Rails.application.load_seed
   end
   config.before(:each) do

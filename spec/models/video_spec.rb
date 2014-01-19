@@ -5,26 +5,33 @@ describe Video do
   it { should validate_presence_of :title }
   it { should validate_presence_of :description }
 
-  #it 'saves itself' do
-  #  video = Video.new(title: "Vid Title", description: "Vid Desc" )
-  #  video.save
-  #  Video.last.title.should == "Vid Title"
-  #end
+  describe 'search_by_title' do
+    it 'returns an empty array if search string is there is no match' do
+      fab = Video.create(title: 'fab', description: 'fab movie')
+      fabulous = Video.create(title: 'fabulous', description: 'fabulous movie')
+      expect(Video.search_by_title('robin')).to eq([])
+    end
+    it 'returns one video for an exact match' do
+      fab = Video.create(title: 'fab', description: 'fab movie')
+      fabulous = Video.create(title: 'fabulous', description: 'fabulous movie')
+      expect(Video.search_by_title("fabulous")).to eq([fabulous])
+    end
+    it 'returns an array of one video for a partial match' do
+      fab = Video.create(title: 'fab', description: 'fab movie')
+      fabulous = Video.create(title: 'fabulous', description: 'fabulous movie')
+      expect(Video.search_by_title("fabu")).to eq([fabulous])
+    end
+    it 'returns an array of all matches ordered by created_at' do
+      fab = Video.create(title: 'fab', description: 'fab movie', created_at: 1.day.ago)
+      fabulous = Video.create(title: 'fabulous', description: 'fabulous movie')
+      expect(Video.search_by_title("fab")).to eq([fabulous, fab])
+    end
 
-  #it 'belongs to category' do
-  #  horrible = Category.create(name: 'horrible')
-  #  badvideo = Video.create(title: 'bad movie', description: 'really bad movie', category: horrible)
-  #  expect(badvideo.category).to eq(horrible)
-  #end
+    it 'returns an empty array if search term is empty' do
+      fab = Video.create(title: 'fab', description: 'fab movie')
+      fabulous = Video.create(title: 'fabulous', description: 'fabulous movie')
+      expect(Video.search_by_title("")).to eq([])
+    end
 
-  #it 'does not save a video without a title' do
-  #  Video.create(description: 'funny movie')
-  #  expect(Video.count).to eq(0)
-  #end
-
-  #it 'does not save a video without a description' do
-  #  Video.create(title: 'elf')
-  #  expect(Video.count).to eq(0)
-  #end
-
+  end
 end
