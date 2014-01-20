@@ -1,5 +1,6 @@
 class Video < ActiveRecord::Base
   belongs_to :category
+  has_many :queue_items
   has_many :reviews, -> { order(created_at: :desc) }
 
   #validates :title, presence: :true
