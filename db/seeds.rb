@@ -97,7 +97,7 @@ Video.find_or_create_by(title: "hellraiser",
              cover_image_url: "hellraiser.jpg",
              large_cover_url: "hellraiser-large.jpg")
 
-Video.find_or_create_by(title: "underworld",
+underworld = Video.find_or_create_by(title: "underworld",
              description: "Selene, a beautiful vampire warrior, is entrenched in a war between the vampire and werewolf races. Although she is aligned with the vampires, she falls in love with Michael, a werewolf who longs for the war to end. ",
              cover_image_url: "underworld.jpg",
              large_cover_url: "underworld-large.jpg")
@@ -166,3 +166,8 @@ Category.find_or_create_by(name: "SciFi").videos << Video.find_by(title: "Underw
 Category.find_or_create_by(name: "SciFi").videos << Video.find_by(title: "Resident Evil: Retribution")
 Category.find_or_create_by(name: "Drama").videos << Video.find_by(title: "The Lord of the Rings: The Two Towers")
 
+alice = User.create(email: "alice@test.com", password: "pass4test", full_name: "Alice W Land")
+
+Review.find_or_create_by(user: alice, video: underworld, rating: 3.5, content: "Amazing movie - so why did i rate it 3.5?"  )
+
+Review.find_or_create_by(user: alice, video: underworld, rating: 3.5, content: "How is it going"  )

@@ -34,7 +34,8 @@ describe SessionsController do
 
     context "with invalid credentials" do
       before do
-        alex = Fabricate(:user)
+        alex = Fabricate(:user) #reates object in db
+        alex = Fabricate.build(:user) #reates object in memory
         post :create, email: alex.email, password: alex.password+'asdf'
       end
       it "does not assign the user.id to the session user_id" do
