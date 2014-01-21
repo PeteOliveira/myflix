@@ -3,12 +3,13 @@ class VideosController < ApplicationController
   before_action :require_user
 
   def index
-    @categories = Category.all
+    @categories = Category.all.includes(:videos)
     @videos = Video.all
   end
 
   def show
     @video = Video.find(params[:id])
+    @reviews = @video.reviews
   end
 
   def search
