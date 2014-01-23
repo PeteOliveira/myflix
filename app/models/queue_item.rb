@@ -3,6 +3,9 @@ class QueueItem < ActiveRecord::Base
   belongs_to :video
 
   delegate :category, to: :video
+
+  validates_numericality_of :position, {only_integer: true }
+
   #delegate does the same as def category
   #def category
   #  video.category
